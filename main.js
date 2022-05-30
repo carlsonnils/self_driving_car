@@ -9,12 +9,10 @@ const car = new Car(
     30,
     50
 );
-car.draw(ctx);
-
 animate();
 
 function animate() {
-    car.update();
+    car.update(road.borders);
 
     canvas.height = window.innerHeight;
 
