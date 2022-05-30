@@ -15,7 +15,7 @@ animate();
 
 function animate() {
     car.update();
-
+    console.log(car.sensor)
     canvas.height = window.innerHeight;
 
     ctx.save();
