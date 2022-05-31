@@ -2,9 +2,9 @@ class Sensor {
     constructor(car) {
         // inttialize variables
         this.car = car;
-        this.rayCount = 11;
+        this.rayCount = 7;
         this.rayLength = 300;
-        this.raySpread = Math.PI * 1.25;
+        this.raySpread = Math.PI /1.5;
 
         this.rays = [];
         this.readings = [];
@@ -37,16 +37,18 @@ class Sensor {
         }
 
         for (let i = 0; i < traffic.length; i++) {
-            const poly = traffic[i].polygon;
-            for (let j = 0; j < poly.length; j++) {
-                const val = getIntersection(
-                    ray[0],
-                    ray[1],
-                    poly[j],
-                    poly[(j + 1) % poly.length]
-                );
-                if (val) {
-                    touches.push(val);
+            for (let j = 0; j < traffic[i].length; j++){
+                const poly = traffic[i][j].polygon;
+                for (let k = 0; k < poly.length; k++) {
+                    const val = getIntersection(
+                        ray[0],
+                        ray[1],
+                        poly[k],
+                        poly[(k + 1) % poly.length]
+                    );
+                    if (val) {
+                        touches.push(val);
+                    }
                 }
             }
         }

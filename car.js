@@ -53,8 +53,10 @@ class Car {
         }
 
         for (let i = 0; i < traffic.length; i++) {
-            if (polysIntersect(this.polygon, traffic[i].polygon)) {
-                return true;
+            for (let j = 0; j < traffic[i].length; j++){
+                if (polysIntersect(this.polygon, traffic[i][j].polygon)) {
+                    return true;
+                }
             }
         }
 
