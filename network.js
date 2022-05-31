@@ -33,7 +33,7 @@ class Level {
         this.weights = [];
 
         for (let i = 0; i < inputCount; i++) {
-            this.weights[i] = new Array(outputCount)
+            this.weights[i] = new Array(outputCount);
         }
 
         Level.randomize(this);
@@ -41,12 +41,12 @@ class Level {
 
     static randomize(level) {
         for (let i = 0; i < level.inputs.length; i++) {
-            for (let j = 0; level.outputs.length; j++) {
+            for (let j = 0; j < level.outputs.length; j++) {
                 level.weights[i][j] = Math.random() * 2 - 1;
             }
         }
 
-        for (let i = 0; i < level.biased.length; i++) {
+        for (let i = 0; i < level.biases.length; i++) {
             level.biases[i] = Math.random() * 2 - 1;
         }
     }
@@ -69,6 +69,6 @@ class Level {
             }
         }
 
-        return level.outputs
+        return level.outputs;
     }
 }
